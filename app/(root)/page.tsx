@@ -1,8 +1,37 @@
 import React from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { dummyInterviews } from '@/constants'
+import InterviewCard from '@/components/InterviewCard'
 
 const page = () => {
   return (
-    <div>Home page</div>
+    <>
+      <section className='card-cta'>
+        <div className='flex flex-col gap-6 max-w-lg'>
+          <h2>Get Interview-Ready with AI-Powered Practice & Feedback</h2>
+          <p className="text-lg">Practice with real interview questions and instant feedback</p>
+          <Button asChild className='button-primary max-sm:w-full'>
+            <Link href='/interview'>Start an interview</Link>
+          </Button>
+        </div>
+        <img src="/robot.png" alt="robo" width={400} height={400} className='max-sm:hidden' />
+      </section>
+      <section className="flex flex-col gap-6 mt-8">
+        <h2>Your interviews</h2>
+        <div className="interviews-section">
+          {dummyInterviews.map((interview) => (
+            <InterviewCard {...interview} />
+          ))}
+        </div>
+      </section>
+      <section className="flex flex-col gap-6 mt-8">
+        <h2>Take an interview</h2>
+        <div className="interviews-section">
+          <p>There are no interview available</p>
+        </div>
+      </section>
+    </>
   )
 }
 
