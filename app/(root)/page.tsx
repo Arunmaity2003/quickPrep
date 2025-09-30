@@ -21,14 +21,18 @@ const page = () => {
         <h2>Your interviews</h2>
         <div className="interviews-section">
           {dummyInterviews.map((interview) => (
-            <InterviewCard {...interview} />
+            <InterviewCard {...interview} key={interview.id} />
           ))}
+          {/* <p>You have't taken any interview</p> */}
         </div>
       </section>
       <section className="flex flex-col gap-6 mt-8">
         <h2>Take an interview</h2>
         <div className="interviews-section">
-          <p>There are no interview available</p>
+          {dummyInterviews.map((interview) => (
+            <InterviewCard {...interview} key={interview.id} />
+          ))}
+          {/* <p>There are no interview available</p> */}
         </div>
       </section>
     </>
